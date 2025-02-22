@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md bg-dark py-3" data-bs-theme="dark">
         <div class="container"><a
                 class="navbar-brand d-flex align-items-start align-items-sm-center align-items-md-center align-items-lg-center align-items-xl-center align-items-xxl-center"
-                href="https://github.com/devsanthoshmk/gmap-project"><span
+                href="https://github.com/devsanthoshmk/places-data"><span
                     class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
                         xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -16,19 +16,20 @@
                             d="M17.591 6.376c.472 .907 .715 1.914 .709 2.935a7.263 7.263 0 0 1 -.72 3.18a19.085 19.085 0 0 1 -2.089 3c-.784 .933 -1.49 1.93 -2.11 2.98c-.314 .62 -.568 1.27 -.757 1.938c-.121 .36 -.277 .591 -.622 .591c-.315 0 -.463 -.136 -.626 -.593a10.595 10.595 0 0 0 -.779 -1.978a18.18 18.18 0 0 0 -1.423 -2.091c-.877 -1.184 -2.179 -2.535 -2.853 -4.071a7.077 7.077 0 0 1 -.621 -2.967a6.226 6.226 0 0 1 1.476 -4.055a6.25 6.25 0 0 1 4.811 -2.245a6.462 6.462 0 0 1 1.918 .284a6.255 6.255 0 0 1 3.686 3.092z">
                         </path>
                     </svg></span>
-                <h1>Gmap Vigilante</h1>
+                <h1>Globex Places Data</h1>
             </a></div>
     </nav>
     <div class="d-flex justify-content-center align-items-center" style="overflow: hidden;min-height: 78vh;">
         <div class="row w-100 animate-me" style="margin-bottom: 150px;">
             <div class="col-md-8 col-sm-12 mx-auto">
                 <div class="card m-auto" style="max-width: 100%;">
-                    <div :class="['card-body p-3',shaking]">
-                        <div class="d-flex align-items-center">
+                    <div :class="['card-body p-3',shaking]" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<em>Example:</em> '<b>restaurants in Chennai</b>' or '<b>hospitals in Bangalore</b>'. Include a place type and city/area.">
+                        <div class="d-flex align-items-center" >
                             <i class="fas fa-search text-body h4 m-0"></i>
                             <input v-model="input" @keyup.enter="act(input)"
                                 class="form-control form-control-lg flex-shrink-1 form-control-borderless"
-                                type="search" name="searchbar" placeholder="Search topics or keywords">
+                                type="search" name="searchbar" placeholder="Enter business/place type & location"
+                                 >
                             <!-- Dropdown button -->
                             <!-- <div class="btn-group "> -->
                             <div class="btn-group nbts">
@@ -165,6 +166,12 @@ export default {
           
           
         }
+      },
+      mounted() {
+        var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        tooltipTriggerList.forEach((tooltipTriggerEl) => {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+        });
       }
 };
 </script>
