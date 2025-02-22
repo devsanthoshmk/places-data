@@ -118,6 +118,7 @@
 
 <script>
 import { search, make_excel } from './gmap_data.js';
+import Tooltip from 'bootstrap/js/dist/tooltip';
 
 export default {
   data() {
@@ -168,10 +169,8 @@ export default {
         }
       },
       mounted() {
-        var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        tooltipTriggerList.forEach((tooltipTriggerEl) => {
-        new bootstrap.Tooltip(tooltipTriggerEl);
-        });
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        tooltipTriggerList.forEach(el => new Tooltip(el));
       }
 };
 </script>
