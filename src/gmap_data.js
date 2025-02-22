@@ -128,7 +128,7 @@ console.log(AF_initDataCallback);
 async function fetchit(pagination){
         const url = `https://www.google.com/localservices/prolist?hl=en&ssta=1&q=${encodeURIComponent(query)}&oq=${encodeURIComponent(query)}&src=2&lci=${encodeURIComponent(pagination)}`;
         console.log(`Fetching: ${url}`);
-        const flaskUrl = `http://corsproxyit.pythonanywhere.com/fetch?url=${encodeURIComponent(url)}`;
+        const flaskUrl = `https://corsproxyit.pythonanywhere.com/fetch?url=${encodeURIComponent(url)}`;
         await fetch(flaskUrl, {
                     headers: {
                         "User-Agent":
